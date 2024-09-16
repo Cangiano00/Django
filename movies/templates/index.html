@@ -10,4 +10,16 @@
   </p>
 </section>
 {% if movie_list %}
-<section class="lista-de-cards">...</section>
+<section class="lista-de-cards">
+    {% for movie in movie_list %}
+    <article class="card">
+        <img src="{{ movie.poster_url }}" alt="Poster do filme {{ movie.name}}">
+        <p>{{ movie.name }} ({{ movie.release_year }})</p>
+    </article>
+    {% endfor %}
+</section>
+{% else %}
+<p>Não foi encontrado nenhum filme para a busca.</p>
+{% endif %}
+
+{% endblock content %}
